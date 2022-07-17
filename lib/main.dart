@@ -1,9 +1,18 @@
-import 'screen/app.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    title: 'Music App',
-    home: MyApp(),
-  ));
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const SafeArea(
+      child: Text(
+        'Home',
+        style: TextStyle(
+          color: Colors.yellow,
+          fontSize: 40,
+        ),
+      ),
+    );
+  }
 }
