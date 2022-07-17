@@ -19,6 +19,7 @@ class _MyAppState extends State<MyApp> {
       body: Tabs[currentTab],
       backgroundColor: Colors.black,
       bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.white,
           currentIndex: currentTab,
           onTap: (currentIndex) {
             currentTab = currentIndex;
