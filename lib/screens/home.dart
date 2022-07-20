@@ -7,14 +7,20 @@ class Home extends StatelessWidget {
 
   Widget createCategory(Category category) {
     return Container(
-      color: Colors.lightGreen,
+      color: Colors.black12,
       child: Row(
         children: [
           Image.network(
             category.imageURL,
             fit: BoxFit.cover,
           ),
-          Text(category.name)
+          Padding(
+            padding: EdgeInsets.only(left: 5),
+            child: Text(
+              category.name,
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+          )
         ],
       ),
     );
@@ -30,9 +36,12 @@ class Home extends StatelessWidget {
 
   Widget createGrid() {
     return Container(
-      height: 200,
-      width: 200,
+      padding: EdgeInsets.all(10),
+      height: 400,
       child: GridView.count(
+        mainAxisSpacing: 5,
+        crossAxisSpacing: 5,
+        childAspectRatio: 5 / 2,
         crossAxisCount: 2,
         children: createCategoryList(),
       ),
@@ -61,14 +70,14 @@ class Home extends StatelessWidget {
           children: [
             createAppBar('Welcome Back'),
             SizedBox(
-              height: 2,
+              height: 10,
             ),
             createGrid()
           ],
         ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.green, Colors.black],
+            colors: [Colors.lightBlueAccent, Colors.black],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             stops: [0.1, 0.3],
