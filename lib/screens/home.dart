@@ -1,7 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/models/category.dart';
+import 'package:spotify/services/category_operatinos.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
+
+  Widget createCategory(Category category) {
+    return Container(
+      color: Colors.lightGreen,
+      child: Row(
+        children: [
+          Image.network(
+            category.imageURL,
+            fit: BoxFit.cover,
+          ),
+          Text(category.name)
+        ],
+      ),
+    );
+  }
+
+  Widget createGrid() {
+    return Container(
+      height: 200,
+      width: 200,
+      child: GridView.count(
+        crossAxisCount: 2,
+        children: ,
+      ),
+    );
+  }
 
   Widget createAppBar(String message) {
     return AppBar(
@@ -22,7 +50,13 @@ class Home extends StatelessWidget {
     return SafeArea(
       child: Container(
         child: Column(
-          children: [createAppBar('Welcome Back')],
+          children: [
+            createAppBar('Welcome Back'),
+            SizedBox(
+              height: 2,
+            ),
+            createGrid()
+          ],
         ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
