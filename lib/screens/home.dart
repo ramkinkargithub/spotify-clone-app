@@ -20,13 +20,21 @@ class Home extends StatelessWidget {
     );
   }
 
+  List<Widget> createCategoryList() {
+    List<Category> cateogryList = CategoryOperations.getCategories();
+    List<Widget> cateogries = cateogryList
+        .map((Category category) => createCategory(category))
+        .toList();
+    return cateogries;
+  }
+
   Widget createGrid() {
     return Container(
       height: 200,
       width: 200,
       child: GridView.count(
         crossAxisCount: 2,
-        children: ,
+        children: createCategoryList(),
       ),
     );
   }
