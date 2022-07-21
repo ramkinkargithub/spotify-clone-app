@@ -1,9 +1,23 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:spotify/models/category.dart';
+import 'package:spotify/models/music.dart';
 import 'package:spotify/services/category_operatinos.dart';
+import 'package:spotify/services/music_operations.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
+
+  Widget createMusicList(String label) {
+    List<Music> musicList = MusicOperations.getMusic();
+    return ListView.builder(
+      itemBuilder: (cntx, index) {
+        // create music elements
+      },
+      itemCount: musicList.length,
+    );
+  }
 
   Widget createCategory(Category category) {
     return Container(
