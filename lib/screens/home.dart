@@ -22,6 +22,7 @@ class Home extends StatelessWidget {
   Widget createMusicList(String label) {
     List<Music> musicList = MusicOperations.getMusic();
     return ListView.builder(
+      scrollDirection: Axis.horizontal,
       itemBuilder: (cntx, index) {
         return createMusic(musicList[index]);
       },
@@ -96,7 +97,8 @@ class Home extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            createGrid()
+            createGrid(),
+            createMusicList('Music for you')
           ],
         ),
         decoration: BoxDecoration(
